@@ -1,9 +1,11 @@
 package vendor.dal;
 
+import vendor.dao.ProfileDAO;
+
 public class ProfileDAL{
 
 	public ProfileDAO getProfileInformation(String someInput){
-		ProfileDAO profileInfo new ProfileDAO();
+		ProfileDAO profileInfo = new ProfileDAO();
 
 		/* Add the Access Logic Here! */
 
