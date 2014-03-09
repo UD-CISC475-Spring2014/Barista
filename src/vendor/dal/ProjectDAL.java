@@ -1,5 +1,5 @@
-package 475.vendor.dal;
-import 475.vendor.dao.ProjectList;
+package vendor.dal;
+import vendor.dao.ProjectList;
 
 public class ProjectDAL{
 	
