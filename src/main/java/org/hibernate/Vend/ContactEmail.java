@@ -1,4 +1,4 @@
-package src.main.java.org.hibernate.Vend;
+package org.hibernate.Vend;
 
 public class ContactEmail implements java.io.Serializable {
 	

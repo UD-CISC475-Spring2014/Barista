@@ -1,0 +1,108 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC
+        "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+        "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+	<hibernate-mapping package="org.hibernate.Vend" schema="Vend">
+	
+		<class name="Contact" table="tblContact">
+		
+			<id name="ContactId" column="ContactId">
+				<generator class="guid"/>
+			</id>
+		
+			<property name="ContactFirstName" column="contactfirstname"/>
+			<property name="ContactMiddleName" column="contactmiddlename"/>
+			<property name="ContactLastName" column="contactlastname"/>
+			<property name="ActiveFlg" column="activeflg"/>
+			<set name="ProjectEventContacts" table="tblProjectEventContact" fetch="select">
+				<key column="ContactID"/>
+				<one-to-many class="ProjectEventContact"/>
+			</set>
+		</class>
+		
+		<class name="ContactEmail" table="tblContactEmail">
+	
+			<composite-id>
+				<key-many-to-one name="Contact" class="Contact">
+					<column name="ContactID" not-null="true"/>				
+				</key-many-to-one>
+				<key-many-to-one name="VendEmail" class="VendEmail">
+					<column name="EmailID" not-null="true"/>
+				</key-many-to-one>
+			</composite-id>	
+	
+			<property name="PrimaryEmail" column="PrimaryEmail"/>
+	
+		</class>
+		
+		<class name="VendEmail" table="tblVendEmail">
+			<id name="EmailID" column="EmailID">
+				<generator class="increment"/>
+			</id>
+			<property name="EmailAddr" column="EmailAddr"/>
+			<property name="ActiveFlg" column="ActiveFlg"/>
+			
+			<set name="ContactEmails" table="tblContactEmail" fetch="select">
+				<key column="EmailID"/>
+				<one-to-many class="ContactEmail"/>
+			</set>
+		</class>
+
+		<class name="Project" table="tblProject">
+	
+			<id name="ProjectID" column="ProjectID">
+				<generator class="guid"/>
+			</id>
+	
+			<property name="ProjectName" column="ProjectName"/>
+			<property name="ProjectDesc" column="ProjectDesc"/>
+			<property name="AddrID" column="AddrID"/>
+			<property name="ActiveFlg" column="ActiveFlg"/>
+	
+		</class>
+		
+		<class name="ProjectEvent" table="tblProjectEvent">
+			<id name="EventID" column="EventID">
+				<generator class="guid"/>
+			</id>
+			
+			<property name="ProjectID" column="ProjectID"/>
+			<property name="StartDateTime" column="StartDateTime"/>
+			<property name="EndDateTime" column="EndDateTime"/>
+			<property name="AddrID" column="AddrID"/>
+			
+			<set name="EventRatings" table="tblEventRating" fetch="select">
+				<key column="EventID"/>
+				<one-to-many class="EventRating"/>
+			</set>
+
+		</class>
+		
+		
+		<class name="EventRating" table="tblEventRating">
+			
+			<id name="RatingID" column="RatingID">
+				<generator class="increment"/>
+			</id>
+			
+			<many-to-one name="ProjectEvent" class="ProjectEvent" fetch="select">
+				<column name="EventID" not-null="true"/>
+			</many-to-one>
+			
+			<property name="VolID" column="VolID"/>
+			<property name="RatingValue" column="RatingValue"/>
+			<property name="ActiveFlg" column="ActiveFlg"/>
+		</class>
+		<class name="ProjectEventContact" table="tblProjectEventContact">
+			<composite-id>
+				<key-many-to-one name="ProjectEvent" class="ProjectEvent">
+					<column name="EventID" not-null="true"/>
+				</key-many-to-one>
+				<key-many-to-one name="Contact" class="Contact">
+					<column name="ContactID" not-null="true"></column>
+				</key-many-to-one>
+			</composite-id>
+			
+			<property name="PrimaryContact" column="PrimaryContact"/>
+		</class>
+    </hibernate-mapping>
