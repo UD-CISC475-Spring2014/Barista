@@ -5,7 +5,6 @@ import org.hibernate.Query;
 
 import java.util.List;
 import java.util.ArrayList;
-import java.util.UUID;
 
 import org.hibernate.Vend.Contact;
 import org.hibernate.Vend.util.HibernateUtil;
