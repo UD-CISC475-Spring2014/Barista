@@ -7,6 +7,8 @@ import org.hibernate.Vend.DAL.Contact_DAL;
 import org.hibernate.Vend.DAL.Vendor_DAL;
 import org.hibernate.Vend.util.HibernateUtil;
 
+//Testing Purposes. This is really nothing but to testing shit
+
 public class VendorManagement {
 	
 	public static void main(String arg[]){
