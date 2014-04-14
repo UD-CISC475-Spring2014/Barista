@@ -3,6 +3,17 @@
         "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
         "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
 	<hibernate-mapping package="org.hibernate.Vend" schema="Vend">
+	<!-- Object Completed:
+			Contact
+			ContactEmail
+			EventRating
+			Project
+			ProjectEvent
+			ProjectEventContact
+			VendContact
+			VendEmail
+			Vendor
+			 -->
 	
 		<class name="Contact" table="tblContact">
 		
@@ -18,6 +29,56 @@
 				<key column="ContactID"/>
 				<one-to-many class="ProjectEventContact"/>
 			</set>
+			<set name="VendContacts" table="tblVendContact" fetch="select">
+				<key column="ContactID"/>
+				<one-to-many class="VendContact"/>
+			</set>
+			<set name="ContactEmails" table="tblContactEmail" fetch="select">
+				<key column="ContactID"/>
+				<one-to-many class="ContactEmail"/>
+			</set>
+			
+		</class>
+		
+		<class name="Vendor" table="tblVendor">
+			<id name="VendorID" column="VendorID">
+				<generator class="guid"/>
+			</id>
+			<property name="VendorName" column="VendorName"/>
+			<property name="ActiveFlg" column="ActiveFlg"/>
+			<set name="VendContacts" table="tblVendContact" fetch="select">
+				<key column="VendorID"/>
+				<one-to-many class="VendContact"/>
+			</set>
+		</class>
+		
+		<class name="VendContact" table="tblVendContact">
+			<composite-id>
+				<key-many-to-one name="Vendor" class="Vendor">
+					<column name="VendorID"/>
+				</key-many-to-one>
+				<key-many-to-one name="Contact" class="Contact">
+					<column name="ContactID"/>
+				</key-many-to-one>
+			</composite-id>
+			
+			<property name="PrimaryContact" column="PrimaryContact"/>
+		</class>
+		
+		<class name="VendAddress" table="tblVendAddress">
+			<id name="AddrID" column="AddrID">
+				<generator class="increment"/>
+			</id>
+			
+			<property name="AddrLine1" column="AddrLine1"/>
+			<property name="AddrLine2" column="AddrLine2"/>
+			<property name="AddrLine3" column="AddrLine3"/>
+			<property name="City" column="City"/>
+			<property name="St" column="St"/>
+			<property name="Zip" column="Zip"/>
+			<property name="Zip4" column="Zip4"/>
+			<property name="ActiveFlg" column="ActiveFlg"/>
+			
 		</class>
 		
 		<class name="ContactEmail" table="tblContactEmail">

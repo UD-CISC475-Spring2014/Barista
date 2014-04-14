@@ -12,10 +12,8 @@ public class ProjectEvent implements java.io.Serializable {
 	private Date EndDateTime;
 	private long AddrID;
 	
-	private Set<EventRating> EventRatings = new HashSet<EventRating>(0);
-	private Set<ProjectEventContact> ProjectEventContracts = new HashSet<ProjectEventContact>(0);
-	
-	
+	private Set<EventRating> EventRatings = new HashSet<EventRating>();
+	private Set<ProjectEventContact> ProjectEventContracts = new HashSet<ProjectEventContact>();
 	
 	public ProjectEvent(){}
 

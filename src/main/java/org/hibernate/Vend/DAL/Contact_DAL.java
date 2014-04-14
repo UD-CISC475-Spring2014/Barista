@@ -64,15 +64,17 @@ public class Contact_DAL {
 	}
 	
 	public void Delete(Contact contact){
-		Session session = HibernateUtil.getSessionFactory().getCurrentSession();
-		session.beginTransaction();
-		
-		Query query = session.createQuery("DELETE FROM Contact WHERE ContactId= :id")
-				.setParameter("id", contact.getContactId());
-		
-		query.executeUpdate();
-		
-		session.getTransaction().commit();
+		contact.setActiveFlg(false); // you are only setting the ActiveFlg false.
+		Update(contact);
+//		Session session = HibernateUtil.getSessionFactory().getCurrentSession();
+//		session.beginTransaction();
+//		
+//		Query query = session.createQuery("DELETE FROM Contact WHERE ContactId= :id")
+//				.setParameter("id", contact.getContactId());
+//		
+//		query.executeUpdate();
+//		
+//		session.getTransaction().commit();
 		
 	}
 }
