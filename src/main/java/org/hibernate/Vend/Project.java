@@ -9,10 +9,7 @@ public class Project {
 	private String ProjectDesc;
 	private VendAddress VendAddress;
 	private boolean ActiveFlg;
-	
-	private Set<VendorProjContact> VendorProjContacts = new HashSet<VendorProjContact>();
-	
-	
+
 	public Project(){}
 
 	public String getProjectID() {
@@ -45,14 +42,6 @@ public class Project {
 
 	public void setVendAddress(VendAddress vendAddress) {
 		VendAddress = vendAddress;
-	}
-
-	public Set<VendorProjContact> getVendorProjContacts() {
-		return VendorProjContacts;
-	}
-
-	public void setVendorProjContacts(Set<VendorProjContact> vendorProjContacts) {
-		VendorProjContacts = vendorProjContacts;
 	}
 
 	public boolean isActiveFlg() {

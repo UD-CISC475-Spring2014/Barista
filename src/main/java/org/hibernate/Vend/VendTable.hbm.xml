@@ -28,22 +28,6 @@
 			<property name="ContactMiddleName" column="contactmiddlename"/>
 			<property name="ContactLastName" column="contactlastname"/>
 			<property name="ActiveFlg" column="activeflg"/>
-			<set name="ProjectEventContacts" table="tblProjectEventContact" fetch="select">
-				<key column="ContactID"/>
-				<one-to-many class="ProjectEventContact"/>
-			</set>
-			<set name="VendContacts" table="tblVendContact" fetch="select">
-				<key column="ContactID"/>
-				<one-to-many class="VendContact"/>
-			</set>
-			<set name="ContactEmails" table="tblContactEmail" fetch="select">
-				<key column="ContactID"/>
-				<one-to-many class="ContactEmail"/>
-			</set>
-			<set name="VendorProjContacts" table="tblVendorProjContact" fetch="select">
-				<key column="ContactID"/>
-				<one-to-many class="VendorProjContact"/>
-			</set>			
 		</class>
 		
 		<class name="Vendor" table="tblVendor">
@@ -52,18 +36,6 @@
 			</id>
 			<property name="VendorName" column="VendorName"/>
 			<property name="ActiveFlg" column="ActiveFlg"/>
-			<set name="VendContacts" table="tblVendContact" fetch="select">
-				<key column="VendorID"/>
-				<one-to-many class="VendContact"/>
-			</set>
-			<set name="VendorAddrs" table="tblVendorAddr" fetch="select">
-				<key column="VendorID"/>
-				<one-to-many class="VendorAddr"/>
-			</set>
-			<set name="VendorProjContacts" table="tblVendorProjContact" fetch="select">
-				<key column="VendorID"/>
-				<one-to-many class="VendorProjContact"/>
-			</set>			
 		</class>
 		
 		<class name="VendContact" table="tblVendContact">
@@ -93,14 +65,6 @@
 			<property name="Zip4" column="Zip4"/>
 			<property name="ActiveFlg" column="ActiveFlg"/>
 			
-			<set name="VendorAddrs" table="tblVendorAddr" fetch="select">
-				<key column="AddrID"/>
-				<one-to-many class="VendorAddr"/>
-			</set>
-			<set name="Projects" table="tblProject" fetch="select">
-				<key column="AddrID"/>
-				<one-to-many class="Project"/>
-			</set>
 		</class>
 		
 		<class name="VendorAddr" table="tblVendorAddr">
@@ -137,11 +101,7 @@
 			</id>
 			<property name="EmailAddr" column="EmailAddr"/>
 			<property name="ActiveFlg" column="ActiveFlg"/>
-			
-			<set name="ContactEmails" table="tblContactEmail" fetch="select">
-				<key column="EmailID"/>
-				<one-to-many class="ContactEmail"/>
-			</set>
+
 		</class>
 
 		<class name="Project" table="tblProject">
@@ -154,11 +114,6 @@
 			<property name="ProjectDesc" column="ProjectDesc"/>
 			<property name="ActiveFlg" column="ActiveFlg"/>
 			<many-to-one name="VendAddress" column="AddrID" class="VendAddress" not-null="true"></many-to-one>
-			
-			<set name="VendorProjContacts" table="tblVendorProjContact" fetch="select">
-				<key column="ProjectID"/>
-				<one-to-many class="VendorProjContact"/>
-			</set>
 	
 		</class>
 		
@@ -171,11 +126,6 @@
 			<property name="StartDateTime" column="StartDateTime"/>
 			<property name="EndDateTime" column="EndDateTime"/>
 			<property name="AddrID" column="AddrID"/>
-			
-			<set name="EventRatings" table="tblEventRating" fetch="select">
-				<key column="EventID"/>
-				<one-to-many class="EventRating"/>
-			</set>
 
 		</class>
 		

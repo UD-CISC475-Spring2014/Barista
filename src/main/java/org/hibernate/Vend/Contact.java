@@ -11,12 +11,7 @@ public class Contact {
 	private String ContactLastName;
 	
 	private boolean ActiveFlg;
-	
-	private Set<ProjectEventContact> ProjectEventContacts = new HashSet<ProjectEventContact>();
-	private Set<ContactEmail> ContactEmails = new HashSet<ContactEmail>();
-	private Set<VendContact> VendContacts = new HashSet<VendContact>();
-	private Set<VendorProjContact> VendorProjContacts = new HashSet<VendorProjContact>();
-	
+
 	public Contact(){}
 
 	public String getContactId() {
@@ -57,39 +52,6 @@ public class Contact {
 
 	public void setActiveFlg(boolean activeFlg) {
 		ActiveFlg = activeFlg;
-	}
-
-	public Set<ProjectEventContact> getProjectEventContacts() {
-		return ProjectEventContacts;
-	}
-
-	public void setProjectEventContacts(
-			Set<ProjectEventContact> projectEventContacts) {
-		ProjectEventContacts = projectEventContacts;
-	}
-
-	public Set<ContactEmail> getContactEmails() {
-		return ContactEmails;
-	}
-
-	public void setContactEmails(Set<ContactEmail> contactEmails) {
-		ContactEmails = contactEmails;
-	}
-
-	public Set<VendContact> getVendContacts() {
-		return VendContacts;
-	}
-
-	public void setVendContacts(Set<VendContact> vendContacts) {
-		VendContacts = vendContacts;
-	}
-
-	public Set<VendorProjContact> getVendorProjContacts() {
-		return VendorProjContacts;
-	}
-
-	public void setVendorProjContacts(Set<VendorProjContact> vendorProjContacts) {
-		VendorProjContacts = vendorProjContacts;
 	}
 
 }

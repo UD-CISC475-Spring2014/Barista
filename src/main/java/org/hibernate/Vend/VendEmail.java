@@ -8,8 +8,6 @@ public class VendEmail {
 	private int EmailID;
 	private String EmailAddr;
 	private boolean ActiveFlg;
-	
-	private Set<ContactEmail> ContactEmails = new HashSet<ContactEmail>();
 
 	public VendEmail() {}
 
@@ -27,14 +25,6 @@ public class VendEmail {
 
 	public void setEmailAddr(String emailAddr) {
 		EmailAddr = emailAddr;
-	}
-
-	public Set<ContactEmail> getContactEmails() {
-		return ContactEmails;
-	}
-
-	public void setContactEmails(Set<ContactEmail> contactEmails) {
-		ContactEmails = contactEmails;
 	}
 
 	public boolean isActiveFlg() {

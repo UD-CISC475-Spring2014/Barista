@@ -14,9 +14,6 @@ public class VendAddress {
 	private int Zip4;
 	private boolean ActiveFlg;
 	
-	private Set<VendorAddr> VendorAddrs = new HashSet<VendorAddr>();
-	private Set<Project> Projects = new HashSet<Project>();
-	
 	public VendAddress(){}
 
 	public int getAddrID() {
@@ -90,22 +87,5 @@ public class VendAddress {
 	public void setActiveFlg(boolean activeFlg) {
 		ActiveFlg = activeFlg;
 	}
-
-	public Set<VendorAddr> getVendorAddrs() {
-		return VendorAddrs;
-	}
-
-	public void setVendorAddrs(Set<VendorAddr> vendorAddrs) {
-		VendorAddrs = vendorAddrs;
-	}
-
-	public Set<Project> getProjects() {
-		return Projects;
-	}
-
-	public void setProjects(Set<Project> projects) {
-		Projects = projects;
-	};
-	
 	
 }

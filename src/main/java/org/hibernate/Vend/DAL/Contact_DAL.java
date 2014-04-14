@@ -26,7 +26,7 @@ public class Contact_DAL {
 		return input.getContactId();
 	}
 	
-	public List<Contact> ListContacts(String ContactId){
+	public List<Contact> Select(String ContactId){
 		Session session = HibernateUtil.getSessionFactory().getCurrentSession();
 		session.beginTransaction();
 		

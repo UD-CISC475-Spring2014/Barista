@@ -11,10 +11,7 @@ public class ProjectEvent implements java.io.Serializable {
 	private Date StartDateTime;
 	private Date EndDateTime;
 	private long AddrID;
-	
-	private Set<EventRating> EventRatings = new HashSet<EventRating>();
-	private Set<ProjectEventContact> ProjectEventContracts = new HashSet<ProjectEventContact>();
-	
+
 	public ProjectEvent(){}
 
 	public String getEventID() {
@@ -55,25 +52,6 @@ public class ProjectEvent implements java.io.Serializable {
 
 	public void setAddrID(long addrId) {
 		AddrID = addrId;
-	}
-
-	public Set<EventRating> getEventRatings() {
-		return EventRatings;
-	}
-
-	public void setEventRatings(Set<EventRating> eventRatings) {
-		EventRatings = eventRatings;
-	}
-
-	public Set<ProjectEventContact> getProjectEventContracts() {
-		return ProjectEventContracts;
-	}
-
-	public void setProjectEventContracts(
-			Set<ProjectEventContact> projectEventContracts) {
-		ProjectEventContracts = projectEventContracts;
-	};
-	
-	
+	}	
 	
 }
