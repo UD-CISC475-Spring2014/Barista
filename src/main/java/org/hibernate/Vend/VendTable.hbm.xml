@@ -10,9 +10,12 @@
 			Project
 			ProjectEvent
 			ProjectEventContact
+			VendAddress
 			VendContact
 			VendEmail
 			Vendor
+			VendorAddr
+			VendorProjContact
 			 -->
 	
 		<class name="Contact" table="tblContact">
@@ -37,7 +40,10 @@
 				<key column="ContactID"/>
 				<one-to-many class="ContactEmail"/>
 			</set>
-			
+			<set name="VendorProjContacts" table="tblVendorProjContact" fetch="select">
+				<key column="ContactID"/>
+				<one-to-many class="VendorProjContact"/>
+			</set>			
 		</class>
 		
 		<class name="Vendor" table="tblVendor">
@@ -50,6 +56,14 @@
 				<key column="VendorID"/>
 				<one-to-many class="VendContact"/>
 			</set>
+			<set name="VendorAddrs" table="tblVendorAddr" fetch="select">
+				<key column="VendorID"/>
+				<one-to-many class="VendorAddr"/>
+			</set>
+			<set name="VendorProjContacts" table="tblVendorProjContact" fetch="select">
+				<key column="VendorID"/>
+				<one-to-many class="VendorProjContact"/>
+			</set>			
 		</class>
 		
 		<class name="VendContact" table="tblVendContact">
@@ -79,6 +93,27 @@
 			<property name="Zip4" column="Zip4"/>
 			<property name="ActiveFlg" column="ActiveFlg"/>
 			
+			<set name="VendorAddrs" table="tblVendorAddr" fetch="select">
+				<key column="AddrID"/>
+				<one-to-many class="VendorAddr"/>
+			</set>
+			<set name="Projects" table="tblProject" fetch="select">
+				<key column="AddrID"/>
+				<one-to-many class="Project"/>
+			</set>
+		</class>
+		
+		<class name="VendorAddr" table="tblVendorAddr">
+			<composite-id>
+				<key-many-to-one name="Vendor" class="Vendor">
+					<column name="VendorID" not-null="true"/>
+				</key-many-to-one>
+				<key-many-to-one name="VendAddress" class="VendAddress">
+					<column name="AddrID" not-null="true"/>
+				</key-many-to-one>
+			</composite-id>
+			
+			<property name="HQ" column="HQ"/>
 		</class>
 		
 		<class name="ContactEmail" table="tblContactEmail">
@@ -117,8 +152,13 @@
 	
 			<property name="ProjectName" column="ProjectName"/>
 			<property name="ProjectDesc" column="ProjectDesc"/>
-			<property name="AddrID" column="AddrID"/>
 			<property name="ActiveFlg" column="ActiveFlg"/>
+			<many-to-one name="VendAddress" column="AddrID" class="VendAddress" not-null="true"></many-to-one>
+			
+			<set name="VendorProjContacts" table="tblVendorProjContact" fetch="select">
+				<key column="ProjectID"/>
+				<one-to-many class="VendorProjContact"/>
+			</set>
 	
 		</class>
 		
@@ -154,6 +194,7 @@
 			<property name="RatingValue" column="RatingValue"/>
 			<property name="ActiveFlg" column="ActiveFlg"/>
 		</class>
+		
 		<class name="ProjectEventContact" table="tblProjectEventContact">
 			<composite-id>
 				<key-many-to-one name="ProjectEvent" class="ProjectEvent">
@@ -161,6 +202,22 @@
 				</key-many-to-one>
 				<key-many-to-one name="Contact" class="Contact">
 					<column name="ContactID" not-null="true"></column>
+				</key-many-to-one>
+			</composite-id>
+			
+			<property name="PrimaryContact" column="PrimaryContact"/>
+		</class>
+		
+		<class name="VendorProjContact" table="tblVendorProjContact">
+			<composite-id>
+				<key-many-to-one name="Vendor" class="Vendor">
+					<column name="VendorID" not-null="true"/>
+				</key-many-to-one>
+				<key-many-to-one name="Project" class="Project">
+					<column name="ProjectID" not-null="true"/>
+				</key-many-to-one>
+				<key-many-to-one name="Contact" class="Contact">
+					<column name="ContactID" not-null="true"/>
 				</key-many-to-one>
 			</composite-id>
 			

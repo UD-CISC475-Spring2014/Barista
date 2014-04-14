@@ -1,5 +1,8 @@
 package org.hibernate.Vend;
 
+import java.util.HashSet;
+import java.util.Set;
+
 public class VendAddress {
 	private int AddrID;
 	private String AddrLine1;
@@ -10,6 +13,9 @@ public class VendAddress {
 	private int Zip;
 	private int Zip4;
 	private boolean ActiveFlg;
+	
+	private Set<VendorAddr> VendorAddrs = new HashSet<VendorAddr>();
+	private Set<Project> Projects = new HashSet<Project>();
 	
 	public VendAddress(){}
 
@@ -83,6 +89,22 @@ public class VendAddress {
 
 	public void setActiveFlg(boolean activeFlg) {
 		ActiveFlg = activeFlg;
+	}
+
+	public Set<VendorAddr> getVendorAddrs() {
+		return VendorAddrs;
+	}
+
+	public void setVendorAddrs(Set<VendorAddr> vendorAddrs) {
+		VendorAddrs = vendorAddrs;
+	}
+
+	public Set<Project> getProjects() {
+		return Projects;
+	}
+
+	public void setProjects(Set<Project> projects) {
+		Projects = projects;
 	};
 	
 	

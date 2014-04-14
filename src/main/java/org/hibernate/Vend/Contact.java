@@ -15,6 +15,7 @@ public class Contact {
 	private Set<ProjectEventContact> ProjectEventContacts = new HashSet<ProjectEventContact>();
 	private Set<ContactEmail> ContactEmails = new HashSet<ContactEmail>();
 	private Set<VendContact> VendContacts = new HashSet<VendContact>();
+	private Set<VendorProjContact> VendorProjContacts = new HashSet<VendorProjContact>();
 	
 	public Contact(){}
 
@@ -81,6 +82,14 @@ public class Contact {
 
 	public void setVendContacts(Set<VendContact> vendContacts) {
 		VendContacts = vendContacts;
+	}
+
+	public Set<VendorProjContact> getVendorProjContacts() {
+		return VendorProjContacts;
+	}
+
+	public void setVendorProjContacts(Set<VendorProjContact> vendorProjContacts) {
+		VendorProjContacts = vendorProjContacts;
 	}
 
 }

@@ -1,11 +1,17 @@
 package org.hibernate.Vend;
 
+import java.util.HashSet;
+import java.util.Set;
+
 public class Project {
 	private String ProjectID;
 	private String ProjectName;
 	private String ProjectDesc;
-	private int AddrID;
+	private VendAddress VendAddress;
 	private boolean ActiveFlg;
+	
+	private Set<VendorProjContact> VendorProjContacts = new HashSet<VendorProjContact>();
+	
 	
 	public Project(){}
 
@@ -32,13 +38,21 @@ public class Project {
 	public void setProjectDesc(String projectDesc) {
 		ProjectDesc = projectDesc;
 	}
-
-	public int getAddrID() {
-		return AddrID;
+	
+	public VendAddress getVendAddress() {
+		return VendAddress;
 	}
 
-	public void setAddrID(int addrID) {
-		AddrID = addrID;
+	public void setVendAddress(VendAddress vendAddress) {
+		VendAddress = vendAddress;
+	}
+
+	public Set<VendorProjContact> getVendorProjContacts() {
+		return VendorProjContacts;
+	}
+
+	public void setVendorProjContacts(Set<VendorProjContact> vendorProjContacts) {
+		VendorProjContacts = vendorProjContacts;
 	}
 
 	public boolean isActiveFlg() {
