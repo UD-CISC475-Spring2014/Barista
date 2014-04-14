@@ -9,7 +9,7 @@ import java.util.ArrayList;
 import org.hibernate.Vend.Contact;
 import org.hibernate.Vend.util.HibernateUtil;
 
-public class sp_VendContact_DAL {
+public class Contact_DAL {
 	public String Insert(Contact contact){
 		Session session = HibernateUtil.getSessionFactory().getCurrentSession();
 		session.beginTransaction();
