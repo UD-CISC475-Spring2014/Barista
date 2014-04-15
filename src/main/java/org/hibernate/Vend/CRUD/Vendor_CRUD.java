@@ -1,4 +1,4 @@
-package org.hibernate.Vend.DAL;
+package org.hibernate.Vend.CRUD;
 
 import java.util.List;
 
@@ -7,7 +7,7 @@ import org.hibernate.Session;
 import org.hibernate.Vend.Vendor;
 import org.hibernate.Vend.util.HibernateUtil;
 
-public class Vendor_DAL {
+public class Vendor_CRUD {
 	
 	public String Insert(Vendor vendor){
 		Session session = HibernateUtil.getSessionFactory().getCurrentSession();

@@ -1,4 +1,4 @@
-package org.hibernate.Vend.DAL;
+package org.hibernate.Vend.CRUD;
 
 import org.hibernate.Session;
 import org.hibernate.Query;
@@ -9,7 +9,7 @@ import java.util.ArrayList;
 import org.hibernate.Vend.Contact;
 import org.hibernate.Vend.util.HibernateUtil;
 
-public class Contact_DAL {
+public class Contact_CRUD {
 	public String Insert(Contact contact){
 		Session session = HibernateUtil.getSessionFactory().getCurrentSession();
 		session.beginTransaction();
