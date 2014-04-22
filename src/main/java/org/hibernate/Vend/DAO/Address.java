@@ -1,6 +1,9 @@
-package org.hibernate.Vend;
+package org.hibernate.Vend.DAO;
 
-public class VendAddress {
+
+//this class has been (mostly) copied from the VendAddress class Duke created
+//the only difference is the constructor, name, and package location.
+public class Address {
 	private int AddrID;
 	private String AddrLine1;
 	private String AddrLine2;
@@ -11,7 +14,20 @@ public class VendAddress {
 	private int Zip4;
 	private boolean ActiveFlg;
 	
-	public VendAddress(){}
+
+	public Address(int addrID, String addrLine1, String addrLine2,
+			String addrLine3, String city, String st, int zip, int zip4) {
+		super();
+		AddrID = addrID;
+		AddrLine1 = addrLine1;
+		AddrLine2 = addrLine2;
+		AddrLine3 = addrLine3;
+		City = city;
+		St = st;
+		Zip = zip;
+		Zip4 = zip4;
+		this.setActiveFlg(false);
+	}
 
 	public int getAddrID() {
 		return AddrID;
