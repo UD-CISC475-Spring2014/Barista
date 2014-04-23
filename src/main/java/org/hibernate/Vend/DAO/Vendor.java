@@ -9,6 +9,7 @@ import org.hibernate.Vend.DAO.Project;
 
 public class Vendor {
 	
+	
 	private String vendorName;
 	//Must be unique
 	private String email;
@@ -24,10 +25,10 @@ public class Vendor {
 	//private String description;
 	//I don't know if we need this in the DAO
 	private int GUID;
-	//This boolean is initalized to false and must be manually flipped
+	//This boolean is initialized to false and must be manually flipped
 	//when the Vendor is activated (after verification by Admin)
 	//It can be set to false again manually or by attempting to 'delete' an account.
-	//Sorry Andrew, Gibbons wants us to pull a Skype.
+	//Sorry Andrew, we have to pull a Skype
 	private boolean activeFlag;
 
 	public Vendor(String vendorName, String email, int eventRating,
@@ -43,6 +44,14 @@ public class Vendor {
 		GUID = gUID;
 		this.setActiveFlag(false);
 	}
+	
+	public Vendor(String vendorName, String email, String password){
+		this.vendorName = vendorName;
+		this.email = email;
+		this.password = password;
+		this.setActiveFlag(false);
+	}
+	
 	/**
 	 * @return the vendorName
 	 */
@@ -126,5 +135,9 @@ public class Vendor {
 	}
 	public void setActiveFlag(boolean activeFlag) {
 		this.activeFlag = activeFlag;
+	}
+	public void readFromForm() {
+		// TODO This method will utilize the current page context to read in data from
+		// the forms. After this method is called, you can consider it instantiated
 	}
 }

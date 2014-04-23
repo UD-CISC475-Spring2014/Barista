@@ -7,11 +7,11 @@ public class AccountCreation {
 	
 	VendorDAL dal;
 	Vendor	accountInfo;
-	
+
 	/*
 	 * Account Creation Logic:
 	 * 		BLL:
-	 * 			User fills out a UI form that is stored in 'vend'
+	 * 			User fills out a UI form that is stored in 'accountInfo'
 	 * 				*Ensure the email is well formed
 	 * 			request 'vendal' to lookup the email to ensure it is not already bound to a GUID
 	 * 		DAL:
@@ -26,5 +26,15 @@ public class AccountCreation {
 	 * 
 	 */
 	
+	public boolean createAccount(){
+		//if implemented correctly, accountInfo is populated like hell.
+		accountInfo.readFromForm();
+		try{
+			dal.createVendor(accountInfo);
+		} catch(Exception e){
+			
+		}
+		return true;
+	}
 
 }

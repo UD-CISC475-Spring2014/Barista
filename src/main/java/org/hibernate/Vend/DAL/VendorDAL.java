@@ -1,10 +1,18 @@
 package org.hibernate.Vend.DAL;
 
+import java.util.ArrayList;
+import java.util.List;
+
+import org.hibernate.Query;
+import org.hibernate.Session;
+import org.hibernate.Vend.Contact;
+import org.hibernate.Vend.DAO.Vendor;
+import org.hibernate.Vend.util.HibernateUtil;
+
 public class VendorDAL {
 
 	//TODO: Everything!
-	
-	
+
 	/*
 	 * Account Creation Logic:
 	 * 		BLL:
@@ -22,4 +30,12 @@ public class VendorDAL {
 	 * 
 	 * 
 	 */
+	
+	
+
+	public void createVendor(Vendor accountInfo) {
+		// TODO make a call to the stored procedure to create all the vendor stuff
+		
+	}
+	
 }
