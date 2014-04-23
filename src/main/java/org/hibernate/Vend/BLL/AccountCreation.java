@@ -1,4 +1,4 @@
-package org.barista.vend.bll;
+package org.hibernate.Vend.BLL;
 
 import org.hibernate.Vend.DAL.VendorDAL;
 import org.hibernate.Vend.DAO.Vendor;
