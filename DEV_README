@@ -1,0 +1,21 @@
+TODO:
+	Check on the mappings for VendAddress/the rest of the foreign keys
+	
+	Modify the pom.xml so that it will actually get the sqljdbc4.jar in
+	dependencies
+	Do so for tools.jar as well, though this should be in the JDK/JRE lib
+	you have to manually import for God knows what reason
+	
+	
+ASK GIBBONS:
+	Shouldn't the column for AddrID in tblProjectEvent be a foreign key mapping
+	to tblVendAddress like every other table does?
+	
+	Where are the passwords? Do users create a new account to do anything?
+	
+	Andrew: Do we have to create another table for username/password?
+	Dan: I think we are using the email as the username. Idk about the passwords.
+	
+	In the stored procedure for Insert in the Vendor Table,
+	We cannot return the UniqueIdentifier correctly, also Andrew is still
+	unsure about returning that value
