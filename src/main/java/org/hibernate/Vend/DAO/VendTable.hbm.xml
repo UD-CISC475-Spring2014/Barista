@@ -34,10 +34,10 @@
  </class>
  <class name="org.hibernate.Vend.DAO.VendContact" table="tblVendContact">
   <composite-id mapped="false" unsaved-value="undefined">
-   <key-many-to-one class="Vendor" name="Vendor">
+   <key-many-to-one class="org.hibernate.Vend.DAO.Vendor" name="Vendor">
     <column name="VendorID"/>
    </key-many-to-one>
-   <key-many-to-one class="Contact" name="Contact">
+   <key-many-to-one class="org.hibernate.Vend.DAO.Contact" name="Contact">
     <column name="ContactID"/>
    </key-many-to-one>
   </composite-id>
@@ -55,15 +55,15 @@
   <property column="Zip" generated="never" lazy="false" name="Zip"/>
   <property column="Zip4" generated="never" lazy="false" name="Zip4"/>
   <property column="ActiveFlg" generated="never" lazy="false" name="ActiveFlg"/>
-  <property column="GeoCode" name="GeoCode"/>
-  <property column="GeoCodeGetSet" name="GeoCodeGetSet"/>
+  <property column="GeoCode" generated="never" lazy="false" name="GeoCode"/>
+  <property column="GeoCodeGetSet" generated="never" lazy="false" name="GeoCodeGetSet"/>
  </class>
  <class name="org.hibernate.Vend.DAO.VendorAddr" table="tblVendorAddr">
   <composite-id mapped="false" unsaved-value="undefined">
-   <key-many-to-one class="Vendor" name="Vendor">
+   <key-many-to-one class="org.hibernate.Vend.DAO.Vendor" name="Vendor">
     <column name="VendorID" not-null="true"/>
    </key-many-to-one>
-   <key-many-to-one class="VendAddress" name="VendAddress">
+   <key-many-to-one class="org.hibernate.Vend.DAO.VendAddress" name="VendAddress">
     <column name="AddrID" not-null="true"/>
    </key-many-to-one>
   </composite-id>
@@ -71,10 +71,10 @@
  </class>
  <class name="org.hibernate.Vend.DAO.ContactEmail" table="tblContactEmail">
   <composite-id mapped="false" unsaved-value="undefined">
-   <key-many-to-one class="Contact" name="Contact">
+   <key-many-to-one class="org.hibernate.Vend.DAO.Contact" name="Contact">
     <column name="ContactID" not-null="true"/>
    </key-many-to-one>
-   <key-many-to-one class="VendEmail" name="VendEmail">
+   <key-many-to-one class="org.hibernate.Vend.DAO.VendEmail" name="VendEmail">
     <column name="EmailID" not-null="true"/>
    </key-many-to-one>
   </composite-id>
@@ -110,7 +110,8 @@
   <id column="RatingID" name="RatingID">
    <generator class="increment"/>
   </id>
-  <many-to-one class="ProjectEvent" fetch="select" name="ProjectEvent">
+  <many-to-one class="org.hibernate.Vend.DAO.ProjectEvent"
+   fetch="select" name="ProjectEvent">
    <column name="EventID" not-null="true"/>
   </many-to-one>
   <property column="VolID" generated="never" lazy="false" name="VolID"/>
@@ -119,10 +120,10 @@
  </class>
  <class name="org.hibernate.Vend.DAO.ProjectEventContact" table="tblProjectEventContact">
   <composite-id mapped="false" unsaved-value="undefined">
-   <key-many-to-one class="ProjectEvent" name="ProjectEvent">
+   <key-many-to-one class="org.hibernate.Vend.DAO.ProjectEvent" name="ProjectEvent">
     <column name="EventID" not-null="true"/>
    </key-many-to-one>
-   <key-many-to-one class="Contact" name="Contact">
+   <key-many-to-one class="org.hibernate.Vend.DAO.Contact" name="Contact">
     <column name="ContactID" not-null="true"/>
    </key-many-to-one>
   </composite-id>
@@ -130,13 +131,13 @@
  </class>
  <class name="org.hibernate.Vend.DAO.VendorProjContact" table="tblVendorProjContact">
   <composite-id mapped="false" unsaved-value="undefined">
-   <key-many-to-one class="Vendor" name="Vendor">
+   <key-many-to-one class="org.hibernate.Vend.DAO.Vendor" name="Vendor">
     <column name="VendorID" not-null="true"/>
    </key-many-to-one>
-   <key-many-to-one class="Project" name="Project">
+   <key-many-to-one class="org.hibernate.Vend.DAO.Project" name="Project">
     <column name="ProjectID" not-null="true"/>
    </key-many-to-one>
-   <key-many-to-one class="Contact" name="Contact">
+   <key-many-to-one class="org.hibernate.Vend.DAO.Contact" name="Contact">
     <column name="ContactID" not-null="true"/>
    </key-many-to-one>
   </composite-id>
