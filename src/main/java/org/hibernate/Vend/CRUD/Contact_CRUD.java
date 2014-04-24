@@ -6,7 +6,7 @@ import org.hibernate.Query;
 import java.util.List;
 import java.util.ArrayList;
 
-import org.hibernate.Vend.Contact;
+import org.hibernate.Vend.DAO.Contact;
 import org.hibernate.Vend.util.HibernateUtil;
 
 public class Contact_CRUD {

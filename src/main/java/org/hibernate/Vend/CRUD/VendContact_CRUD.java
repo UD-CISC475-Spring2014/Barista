@@ -1,7 +1,7 @@
 package org.hibernate.Vend.CRUD;
 
 import org.hibernate.Session;
-import org.hibernate.Vend.VendContact;
+import org.hibernate.Vend.DAO.VendContact;
 import org.hibernate.Vend.util.HibernateUtil;
 
 public class VendContact_CRUD {

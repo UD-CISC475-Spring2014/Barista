@@ -4,7 +4,7 @@ import java.util.List;
 
 import org.hibernate.Query;
 import org.hibernate.Session;
-import org.hibernate.Vend.Vendor;
+import org.hibernate.Vend.DAO.Vendor;
 import org.hibernate.Vend.util.HibernateUtil;
 
 public class Vendor_CRUD {

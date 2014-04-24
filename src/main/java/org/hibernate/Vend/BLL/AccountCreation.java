@@ -28,7 +28,7 @@ public class AccountCreation {
 	
 	public boolean createAccount(){
 		//if implemented correctly, accountInfo is populated like hell.
-		accountInfo.readFromForm();
+		//accountInfo.readFromForm();
 		try{
 			dal.createVendor(accountInfo);
 		} catch(Exception e){
